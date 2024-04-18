@@ -16,14 +16,25 @@ else()
     endfunction()
 endif()
 
-option(BUILD_TOOLS "Build example tools" ON)
+option(BUILD_TOOLS "Build example tools" OFF)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
+find_package(Boost REQUIRED COMPONENTS system)
+if(NOT Boost_FOUND)
+    message(FATAL_ERROR "Boost not found")
+endif()
+link_libraries(Boost::boost)
+include_directories(${Boost_INCLUDE_DIRS})
+
+find_package(OpenSSL REQUIRED)
+link_libraries(OpenSSL::SSL OpenSSL::Crypto)
+
+
 include(GNUInstallDirs)
 
 add_subdirectory(src)
-if (BUILD_TOOLS)
-    add_subdirectory(tools)
-endif()
+#if (BUILD_TOOLS)
+#    add_subdirectory(tools)
+#endif()

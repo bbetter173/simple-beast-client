@@ -1,0 +1,20 @@
+{
+  "name" : "rhhpl",
+  "version-string" : "0.0.1",
+  "builtin-baseline" : "97dd26728e3856ed1ab62ee74ee3a391d9c81d19",
+  "dependencies" : [
+    {
+      "name" : "vcpkg-cmake-config",
+      "version>=" : "2022-02-06#1"
+    }, {
+      "name" : "vcpkg-cmake",
+      "version>=" : "2023-05-04"
+    }, {
+      "name": "boost-beast",
+      "version>=": "1.83.0"
+    }, {
+      "name" : "openssl",
+      "version>=" : "3.2.0"
+    }
+  ]
+}
